@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect rx="10" ry="10" width="240" height="60" fill="#0f172a"/>
+  <rect x="26" y="16" width="10" height="28" rx="3" fill="url(#g2)"/>
+  <rect x="44" y="16" width="10" height="28" rx="3" fill="url(#g2)"/>
+  <text x="70" y="36" font-family="Segoe UI, Roboto, Arial" font-size="22" font-weight="700" fill="#e2e8f0">Endless Pause</text>
+  <text x="70" y="52" font-family="Segoe UI, Roboto, Arial" font-size="10" fill="#94a3b8">Avec pause de 40 minutes</text>
+</svg>
