@@ -271,7 +271,7 @@ class EndlessPauseGUI:
         ).pack(side=tk.LEFT, padx=(0, 10))
         
         self.duration_var = tk.StringVar(value="40")
-        duration_options = ["10", "20", "30", "40", "60", "90"]
+        duration_options = ["10", "20", "30", "40", "45"]
         
         self.duration_menu = ttk.Combobox(
             duration_frame,
