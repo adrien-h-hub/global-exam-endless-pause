@@ -8,6 +8,48 @@ import pyautogui
 # Import your helper functions (final_test.py must be in the same folder)
 from final_test import click_button as _click_button, answer_multi_blank, click_image
 
+# --- Resolution scaling (baseline 1920x1080) and zoom normalization ---
+BASELINE_W = 1920
+BASELINE_H = 1080
+_orig_moveTo = pyautogui.moveTo
+
+def _scale_xy(x, y):
+    try:
+        sw, sh = pyautogui.size()
+        return int(x * sw / BASELINE_W), int(y * sh / BASELINE_H)
+    except Exception:
+        return x, y
+
+def _moveTo_scaled(*args, **kwargs):
+    # Scale only raw numeric x,y; pass through tuples/Points from image matches
+    if len(args) == 2 and isinstance(args[0], (int, float)) and isinstance(args[1], (int, float)):
+        sx, sy = _scale_xy(args[0], args[1])
+        return _orig_moveTo(sx, sy, **kwargs)
+    return _orig_moveTo(*args, **kwargs)
+
+pyautogui.moveTo = _moveTo_scaled
+
+def normalize_browser_zoom(repeats: int = 3, delay: float = 0.2):
+    # Sends Ctrl+0 multiple times to reset zoom to 100% (Chrome/Edge/Firefox)
+    print("[AUTO-SETUP] Normalizing browser zoom to 100%...")
+    for _ in range(repeats):
+        pyautogui.hotkey('ctrl', '0')
+        time.sleep(delay)
+    print("[AUTO-SETUP] Zoom normalization complete.")
+
+def detect_and_log_resolution():
+    try:
+        sw, sh = pyautogui.size()
+        print(f"[AUTO-SETUP] Detected screen resolution: {sw}x{sh}")
+        print(f"[AUTO-SETUP] Scaling from baseline: {BASELINE_W}x{BASELINE_H}")
+        scale_x = sw / BASELINE_W
+        scale_y = sh / BASELINE_H
+        print(f"[AUTO-SETUP] Scale factors: X={scale_x:.3f}, Y={scale_y:.3f}")
+        return sw, sh
+    except Exception as e:
+        print(f"[AUTO-SETUP] Could not detect resolution: {e}")
+        return BASELINE_W, BASELINE_H
+
 # Small safety delay after each click to avoid skipping questions on slow pages
 def click_button(delay: float = 0.8):
     _click_button()
@@ -322,6 +364,19 @@ def run_final_once():
 if __name__ == '__main__':
     # One-time authentication on first launch
     ensure_first_run_auth()
+    
+    # Auto-detect resolution and normalize zoom
+    print("\n" + "="*60)
+    print("[AUTO-SETUP] Starting automatic configuration...")
+    print("="*60)
+    detect_and_log_resolution()
+    time.sleep(1)
+    normalize_browser_zoom()
+    time.sleep(2)
+    print("[AUTO-SETUP] Ready to start! Make sure browser is active.")
+    print("="*60 + "\n")
+    time.sleep(2)
+    
     while True:
         run_final_once()
         print("[ENDLESS] Sequence complete. Restarting in 3 seconds...")

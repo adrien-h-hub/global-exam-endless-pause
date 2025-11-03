@@ -20,6 +20,10 @@ pandas==2.0.3
 colorama==0.4.6
 tqdm==4.66.1
 
+# Testing
+pytest==7.4.2
+pytest-mock==3.11.1
+
 # Multi-Screen Support (Windows)
 pywin32==306
 

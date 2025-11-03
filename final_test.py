@@ -3,11 +3,21 @@ import time
 from PIL import Image  # For image recognition
 
 # --- Button coordinates (all actions) ---
-BUTTON_X = 960  # Updated for single screen
-BUTTON_Y = 983  # Updated for single screen
+BUTTON_X = 960  # Baseline coords for 1920x1080
+BUTTON_Y = 983
+BASELINE_W = 1920
+BASELINE_H = 1080
+
+def _scale_xy(x, y):
+    try:
+        sw, sh = pyautogui.size()
+        return int(x * sw / BASELINE_W), int(y * sh / BASELINE_H)
+    except Exception:
+        return x, y
 
 def click_button():
-    pyautogui.moveTo(BUTTON_X, BUTTON_Y)
+    sx, sy = _scale_xy(BUTTON_X, BUTTON_Y)
+    pyautogui.moveTo(sx, sy)
     pyautogui.click()
     time.sleep(0.3)
 

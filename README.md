@@ -1,140 +1,267 @@
-<p align="center">
-  <img src="assets/endless_pause_logo.svg" alt="Endless Pause" height="72"/>
-</p>
+# ⏸️ GlobalExam Pause - Smart Mode
 
-<p align="center">
-  <strong>Automatisation GlobalExam – Activité 7 (Business > Bâtiment)</strong><br/>
-  <em>Mode avec pause (40 minutes au milieu) – robustesse via délais et reconnaissance d’images</em>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="#prerequis"><img src="https://img.shields.io/badge/OS-Windows-blue" alt="Windows"/></a>
-  <a href="#installation"><img src="https://img.shields.io/badge/Python-3.13-3776AB" alt="Python 3.13"/></a>
-  <a href="#perimetre"><img src="https://img.shields.io/badge/Portee-Activit%C3%A9%207%20Business%2FB%C3%A2timent-orange" alt="Scope"/></a>
-  <a href="#licence"><img src="https://img.shields.io/badge/License-Private-lightgrey" alt="License"/></a>
-</p>
+![GlobalExam Pause](assets/endless_pause_logo.png)
+
+**Intelligent automation with customizable breaks for GlobalExam Activity 7**
+
+[![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Windows](https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/)
+
+**Smart Mode • Customizable Pauses • Live Timer**
+
+</div>
 
 ---
 
-## Sommaire
+## 🎯 What is GlobalExam Pause?
 
-- [Périmètre](#perimetre)
-- [Fonctionnalités](#fonctionnalites)
-- [Prérequis](#prerequis)
-- [Installation](#installation)
-- [Première exécution (code masqué)](#premiere-execution-code-masque)
-- [Utilisation](#utilisation)
-- [Configuration & Assets](#configuration--assets)
-- [Dépannage](#depannage)
-- [FAQ](#faq)
-- [Feuille de route](#feuille-de-route)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
-- [Avertissement](#avertissement)
-- [Contact](#contact)
+**GlobalExam Pause** is a professional GUI automation tool for GlobalExam Activity 7 with intelligent break management. Perfect for human-like automation patterns.
 
-## Périmètre
+### ✨ Key Features
 
-- **Uniquement** pour l’**activité 7** de la partie **Business > Bâtiment** sur GlobalExam.
-- Non garanti pour d’autres activités ou résolutions.
+- ⏸️ **Smart Pause Mode** - Customizable breaks between cycles
+- ⏱️ **Live Countdown Timer** - Real-time MM:SS display
+- ⚙️ **Custom Duration** - Choose 10, 20, 30, 40, 60, or 90 minutes
+- 📊 **Full Statistics** - Cycles, questions answered, total time
+- 🎨 **Beautiful GUI** - Modern dark theme with green accents
+- 🔐 **Password Protection** - Secure first-run authentication
+- 📐 **Auto-Resolution Scaling** - Works on any screen size
+- ⏭️ **Skip Pause** - Manual override button
 
-## Fonctionnalités
+---
 
-- **Pause automatique**: interrompt au milieu pour 40 minutes, puis reprend.
-- **Délai post-clic**: réduit les sauts de question sur site lent.
-- **Reconnaissance d’images** avec **coordonnées de secours**.
-- **Relance en boucle** de l’activité (« Rejouer l’activité »).
-- **Code d’accès masqué** au premier lancement (anti-mauvaise utilisation).
+## 📦 Installation
 
-## Prérequis
+### Quick Start
 
-- **Windows**
-- **Python 3.13**
-- **Affichage stable** (résolution/zoom constants)
-
-## Installation
-
-1. Cloner ou télécharger ce dépôt.
-2. Installer les dépendances:
+1. **Clone or download** this repository
+2. **Install dependencies:**
    ```powershell
-   & "C:\Users\Dardq\AppData\Local\Programs\Python\Python313\python.exe" -m pip install -r requirements.txt
+   pip install -r requirements.txt
+   ```
+3. **Run the app:**
+   ```powershell
+   python endless_final_pause_GUI.py
    ```
 
-## Première exécution (code masqué)
+### Requirements
 
-Lors du premier lancement, un **code à usage unique** est demandé dans la console. La saisie est **masquée**. Ne publiez jamais ce code.
+- **OS:** Windows 10/11
+- **Python:** 3.13+ (or any Python 3.x)
+- **Browser:** Chrome/Firefox at 100% zoom
+- **Screen:** Any resolution (auto-adapts)
 
-- Après une saisie correcte, un fichier `.first_run_ok` est créé afin de ne plus redemander le code aux exécutions suivantes.
-- Pour réactiver le prompt, supprimez le fichier `.first_run_ok`.
+---
 
-## Utilisation
+## 🚀 Usage
 
-Exécuter depuis PowerShell (Windows):
+### Running the Application
 
 ```powershell
-python endless_final_pause.py
-& "C:\Users\Dardq\AppData\Local\Programs\Python\Python313\python.exe" endless_final_pause.py
+python endless_final_pause_GUI.py
 ```
 
-Arrêt: `Ctrl + C` dans la console.
+### First Launch
 
-## Configuration & Assets
+On first run, you'll be prompted for an access code:
+- Enter the code when prompted (input is hidden)
+- A `.first_run_ok` file is created after authentication
+- You won't be asked again unless you delete this file
 
-- **Dossier images**: `PNJ/` (inclus dans le dépôt, à remplir avec vos `.png`).
-- **Logo**: `assets/endless_pause_logo.svg`.
-- **Ajuster les délais**: ouvrez `endless_final_pause.py` et modifiez `click_button(delay=0.8)`.
-- **Durée de pause**: réglée à 40 minutes (boucle 40 × 60s). Modifiable dans la section `PAUSE`.
-- **Chemin Python**: si besoin, remplacez par votre chemin local.
+### Using the App
 
-Arborescence minimale:
+1. Open GlobalExam Activity 7 in your browser
+2. **Select pause duration** (10-90 minutes)
+3. Click **DÉMARRER** in the app
+4. The app will:
+   - Detect your screen resolution
+   - Normalize browser zoom to 100%
+   - Process questions 1-6
+   - **Start customizable pause**
+   - Process questions 7-13
+   - Repeat cycle
+5. Click **IGNORER PAUSE** to skip break
+6. Click **ARRÊTER** to stop anytime
+
+---
+
+## ⏱️ Pause Timer Features
+
+### Real-Time Countdown
+
+The timer displays:
+- **Format:** MM:SS (e.g., 40:00, 15:30, 00:45)
+- **Updates:** Every second
+- **Color coding:**
+  - 🟢 **Green** when > 5 minutes left
+  - 🟠 **Orange** when 1-5 minutes left
+  - 🔴 **Red** when < 1 minute left
+
+### Customizable Duration
+
+Choose your break length:
+- **10 minutes** - Quick break
+- **20 minutes** - Short break
+- **30 minutes** - Medium break
+- **40 minutes** - Standard (default)
+- **60 minutes** - Long break
+- **90 minutes** - Extended break
+
+**Note:** Duration is locked while automation is running.
+
+---
+
+## 📊 Statistics Tracking
+
+### What's Tracked
+
+| Statistic | Description |
+|-----------|-------------|
+| **🔄 Cycles** | Total completed cycles |
+| **❓ Questions** | Total questions answered (13 per cycle) |
+| **⏱️ Time** | Session duration (HH:MM:SS) |
+| **État** | Current status (Running/Stopped/Paused) |
+
+### Live Updates
+
+- Statistics update every second
+- Final summary when you stop
+- Resets when you close the app
+
+**Example:**
+```
+🔄 Cycles: 3
+❓ Questions: 39
+⏱️ Temps: 02:15:30
+État: 🟢 En cours
+```
+
+---
+
+## 🎨 Screenshots
+
+### Main Interface
+- Green-themed professional GUI
+- Large pause logo (⏸️)
+- Huge 72px countdown timer
+- Pause duration selector
+- Start/Stop/Skip buttons
+- Comprehensive statistics
+- Live activity log
+
+### Timer in Action
+- Real-time seconds countdown
+- Color changes as time decreases
+- Skip button activates during pause
+
+---
+
+## 📂 Project Structure
 
 ```
-.
-├─ endless_final_pause.py
-├─ final_test.py
-├─ requirements.txt
-├─ .gitignore
-├─ assets/
-│  └─ endless_pause_logo.svg
-└─ PNJ/
-   └─ ... (vos images)
+GlobalExam_Pause/
+├── endless_final_pause_GUI.py  # Main application
+├── final_test.py               # Helper functions
+├── PNJ/                        # Image templates
+├── assets/                     # Logos and icons
+│   ├── endless_pause_logo.png
+│   └── endless_pause_logo.ico
+├── requirements.txt            # Python dependencies
+├── .gitignore                 # Git ignore rules
+├── LICENSE                     # License file
+└── README.md                   # This file
 ```
 
-## Dépannage
+---
 
-- **Sauts de question**: augmentez légèrement `delay` dans `click_button()` (ex: 1.2s).
-- **Image non trouvée**: vérifiez que le `.png` existe et que la **fenêtre navigateur est active**.
-- **Mauvais zoom**: restaurez le zoom par défaut du navigateur.
-- **Multiples écrans**: essayez en écran unique.
+## ⚙️ Configuration
 
-## FAQ
+### Auto-Resolution Scaling
 
-- **Q: Puis-je l’utiliser pour d’autres activités ?**
-  - R: Non, uniquement pour l’**activité 7 (Business > Bâtiment)**.
-- **Q: Comment réinitialiser le code masqué ?**
-  - R: Supprimez `.first_run_ok`.
-- **Q: Peut-on ajuster la sensibilité d’image ?**
-  - R: Oui, modifiez la `confidence` dans les appels `click_image()` si nécessaire.
+Automatically scales coordinates:
+- Baseline: 1920x1080
+- Adjusts to your screen
+- No manual setup needed
 
-## Feuille de route
+### Browser Zoom Normalization
 
-- Paramétrage dynamique de la durée de pause.
-- Journalisation plus détaillée optionnelle.
-- Packager en exécutable.
+On startup:
+- Presses `Ctrl+0` three times
+- Ensures 100% zoom
+- Prevents misclicks
 
-## Contribuer
+### Pause Duration
 
-- Ouvrez une **issue** pour tout bug ou suggestion.
-- Proposez une **PR** avec une description claire et des captures si possible.
+Set before starting:
+- Use dropdown menu
+- Choose 10-90 minutes
+- Locked during automation
 
-## Licence
+---
 
-Usage **privé**. Contactez le mainteneur pour une autre licence.
+## 🐛 Troubleshooting
 
-## Avertissement
+| Issue | Solution |
+|-------|----------|
+| **Timer not counting** | Pause hasn't started yet (runs after Q6) |
+| **Questions skipped** | Ensure browser zoom is at 100% |
+| **Can't change duration** | Stop automation first, then change |
+| **Statistics not updating** | Check if automation is running |
 
-Projet à visée personnelle/éducative. Respectez les conditions d’utilisation de la plateforme GlobalExam.
+---
 
-## Contact
+## ⚠️ Important Notes
 
-- Mainteneur: propriétaire de ce dépôt.
+- ✅ **Pause Position:** After Question 6, before Question 7
+- ✅ **Duration Lock:** Can't change while running
+- ✅ **Skip Available:** Click "IGNORER PAUSE" anytime
+- ✅ **Statistics:** Reset only when app closes
+- ⚠️ **Browser Zoom:** Must stay at 100%
+
+---
+
+## 💡 Tips & Best Practices
+
+### Choosing Pause Duration
+
+- **10-20 min:** Quick testing or short sessions
+- **30-40 min:** Standard usage (mimics human breaks)
+- **60-90 min:** Extended breaks, overnight runs
+
+### Using Statistics
+
+- Monitor **Time** to plan session length
+- Track **Questions** for daily goals
+- Count **Cycles** for completion rate
+
+### Skip Pause
+
+- Use when you need to finish quickly
+- Continues immediately to Q7
+- Doesn't affect subsequent cycles
+
+---
+
+## 📝 License
+
+This project is provided for personal/educational automation purposes. Please respect the platform's terms of service.
+
+---
+
+## 🤝 Contributing
+
+This is a personal automation tool. For questions or issues, please contact the repository owner.
+
+---
+
+<div align="center">
+
+**Made with ❤️ for GlobalExam automation**
+
+⏸️ **GlobalExam Pause** - Smart Mode
+
+[Report Bug](https://github.com/yourusername/globalexam-pause/issues) • [Request Feature](https://github.com/yourusername/globalexam-pause/issues)
+
+</div>
