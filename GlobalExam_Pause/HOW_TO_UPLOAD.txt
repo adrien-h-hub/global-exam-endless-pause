@@ -1,0 +1,58 @@
+========================================
+   HOW TO UPLOAD TO GITHUB
+========================================
+
+DRAG & DROP METHOD (EASIEST):
+------------------------------
+1. Go to https://github.com/new
+2. Repository name: "globalexam-pause"
+3. Description: "Smart mode automation with customizable pauses for GlobalExam Activity 7"
+4. Set to PRIVATE (recommended)
+5. Don't initialize with README
+6. After creating, click "uploading an existing file"
+7. Drag ALL files from this folder
+8. Add message: "Initial commit"
+9. Click "Commit changes"
+
+DONE! ✓
+
+GIT COMMAND LINE METHOD:
+------------------------
+cd "C:\Users\Dardq\CascadeProjects\commen_skip_GE\GlobalExam_Pause"
+git init
+git add .
+git commit -m "Initial commit: GlobalExam Pause"
+git remote add origin https://github.com/YOUR_USERNAME/globalexam-pause.git
+git push -u origin main
+
+========================================
+   WHAT'S INCLUDED
+========================================
+
+✓ Main app (endless_final_pause_GUI.py)
+✓ Helper functions (final_test.py)
+✓ PNJ images for recognition
+✓ Logos and icons
+✓ README with full documentation
+✓ Requirements and license
+
+========================================
+   FEATURES
+========================================
+
+✓ Live countdown timer (MM:SS)
+✓ Customizable pause (10-90 min)
+✓ Real-time statistics
+✓ Skip pause button
+✓ Beautiful green theme
+
+========================================
+   IMPORTANT
+========================================
+
+✓ Password removed from README (secured)
+✓ No .exe files (clean repo)
+✓ Set repository to PRIVATE
+✓ ~5-10 MB total size
+
+Ready to upload!
